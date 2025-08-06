@@ -4,18 +4,29 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Button } from "../ui/button";
 
+import { Philosopher } from "next/font/google";
+
+const philosopher = Philosopher({
+    subsets: ["latin"],
+    weight: ["400", "700"], // Add weights you want
+    variable: "--font-philosopher", // Optional if you want CSS variable
+    display: "swap",
+});
+
 const Header = () => {
     return (
-        <header className="bg-white py-10">
+        <header className="bg-white py-10 shadow-md ">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col-reverse lg:flex-row items-center justify-between max-w-6xl mx-auto gap-4">
                     {/* Left Text Content */}
                     <div className="w-full text-center lg:text-left">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <h1
+                            className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 ${philosopher.className}`}
+                        >
                             Assalamu Alaikum
                         </h1>
                         <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                            Welcome to <strong>Ad-Deen Nikah Service</strong> —
+                            Welcome to <strong>Ad-Deen Nikkah Service</strong> —
                             a trusted platform committed to helping Muslim
                             individuals and families find their life partners in
                             accordance with Islamic principles. We believe that
@@ -40,12 +51,12 @@ const Header = () => {
                             </Button>
                         </Link>
 
-                        <div className="flex gap-1 items-center mt-4 text-lg">
+                        <div className="flex gap-1 items-center mt-4 text-lg justify-center md:justify-start">
                             <MdEmail className="size-6 text-stone-600" />
                             <span> - adden.nikkah@gmail.com</span>
                         </div>
                         <div>
-                            <ul className="flex gap-4  mt-4 items-center">
+                            <ul className="flex gap-4 justify-center md:justify-start mt-4 items-center">
                                 <li>
                                     <FaFacebook className="size-8 cursor-pointer" />
                                 </li>
