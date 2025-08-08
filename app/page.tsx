@@ -1,4 +1,5 @@
 import Header from "@/components/home/Header";
+import History from "@/components/home/History";
 import WhatMakesUsDiffrent from "@/components/home/whatMakesUs";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
         <div>
             <Header />
             <WhatMakesUsDiffrent />
+            <History />
         </div>
     );
 }

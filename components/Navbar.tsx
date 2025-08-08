@@ -34,7 +34,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href={"/"} className="relative">
                     <Image
-                        src={"/images/logo.png"}
+                        src={"/images/logo2.png"}
                         alt="Logo"
                         width={200}
                         height={40}

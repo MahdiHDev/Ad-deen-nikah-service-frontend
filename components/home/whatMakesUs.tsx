@@ -1,17 +1,10 @@
 "use client";
+import { philosopher } from "@/app/fonts/fonts";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Philosopher } from "next/font/google";
 import Image from "next/image";
 import { useEffect } from "react";
 import { TfiCheckBox } from "react-icons/tfi";
-
-const philosopher = Philosopher({
-    subsets: ["latin"],
-    weight: ["400", "700"], // Add weights you want
-    variable: "--font-philosopher", // Optional if you want CSS variable
-    display: "swap",
-});
 
 const WhatMakesUsDiffrent = () => {
     useEffect(() => {

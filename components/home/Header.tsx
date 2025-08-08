@@ -1,17 +1,9 @@
+import { philosopher } from "@/app/fonts/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Button } from "../ui/button";
-
-import { Philosopher } from "next/font/google";
-
-const philosopher = Philosopher({
-    subsets: ["latin"],
-    weight: ["400", "700"], // Add weights you want
-    variable: "--font-philosopher", // Optional if you want CSS variable
-    display: "swap",
-});
 
 const Header = () => {
     return (
