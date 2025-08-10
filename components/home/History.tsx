@@ -4,12 +4,7 @@ import Image from "next/image";
 const History = () => {
     return (
         <>
-            <div
-                className="bg-no-repeat bg-contain"
-                style={{
-                    backgroundImage: "url('/images/floral1-min.png')",
-                }}
-            >
+            <div className="bg-no-repeat bg-contain  h-auto md:bg-[url('/images/floral1-min.png')] bg-left">
                 <div className="py-5 md:pt-10 max-w-6xl mx-auto flex md:flex-row flex-col md:gap-5 items-center ">
                     <div className="w-full md:w-[70%] p-4 md:px-6">
                         <h1
