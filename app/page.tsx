@@ -1,5 +1,7 @@
+import FaqAndContact from "@/components/home/FaqandContact";
 import Header from "@/components/home/Header";
 import History from "@/components/home/History";
+import NikahOption from "@/components/home/NikahOption";
 import Performance from "@/components/home/Performance";
 import ServicesSection from "@/components/home/Services";
 import WhatMakesUsDiffrent from "@/components/home/whatMakesUs";
@@ -11,7 +13,9 @@ export default function Home() {
             <WhatMakesUsDiffrent />
             <History />
             <ServicesSection />
+            <NikahOption />
             <Performance />
+            <FaqAndContact />
         </div>
     );
 }

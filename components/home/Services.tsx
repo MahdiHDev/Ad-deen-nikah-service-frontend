@@ -40,7 +40,7 @@ const services = [
 
 const ServicesSection: React.FC = () => {
     return (
-        <section className="py-14 bg-gray-50 px-4 sm:px-6">
+        <section className="py-14 bg-gray-100 px-4 sm:px-6">
             {/* Heading */}
             <div className="text-center mb-12">
                 <h2
