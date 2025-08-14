@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 const FaqAndContact = () => {
     const faqs = [
@@ -44,81 +45,115 @@ const FaqAndContact = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto p-6 grid md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row gap-8">
             {/* FAQ Section */}
-            <div>
-                <h2 className="text-2xl font-bold mb-4">FAQs</h2>
-                <div className="space-y-4">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className="border border-gray-300 rounded-lg p-4 cursor-pointer"
-                        >
-                            <div
-                                className="flex justify-between items-center"
-                                onClick={() => toggleFAQ(index)}
-                            >
-                                <h3 className="font-semibold">
-                                    {faq.question}
-                                </h3>
-                                <span className="text-xl">
-                                    {openIndex === index ? "−" : "+"}
-                                </span>
+            <div className="md:border-r border-gray-200 md:w-1/2">
+                <div>
+                    <h2 className="text-3xl font-semibold text-center mb-6">
+                        FAQs
+                    </h2>
+                    <div className="w-full md:w-[80%] mx-auto">
+                        {faqs.map((faq, index) => (
+                            <div key={index} className="p-4 cursor-pointer">
+                                <div
+                                    className="flex justify-between items-center"
+                                    onClick={() => toggleFAQ(index)}
+                                >
+                                    <h3 className="font-semibold">
+                                        {faq.question}
+                                    </h3>
+                                    <span className="text-xl">
+                                        {/* ? ( */}
+                                        <IoIosArrowDown
+                                            className={`duration-300 ${
+                                                openIndex === index
+                                                    ? "rotate-180"
+                                                    : ""
+                                            }`}
+                                        />
+                                        {/* ) : (
+                                        "+"
+                                    )} */}
+                                    </span>
+                                </div>
+                                <div
+                                    className={`transition-all duration-300 overflow-hidden ${
+                                        openIndex === index
+                                            ? "max-h-96 mt-2"
+                                            : "max-h-0"
+                                    }`}
+                                >
+                                    <p className="text-gray-600">
+                                        {faq.answer}
+                                    </p>
+                                </div>
                             </div>
-                            <div
-                                className={`transition-all duration-300 overflow-hidden ${
-                                    openIndex === index
-                                        ? "max-h-96 mt-2"
-                                        : "max-h-0"
-                                }`}
-                            >
-                                <p className="text-gray-600">{faq.answer}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 
             {/* Form Section */}
-            <div>
-                <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-                <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="md:w-1/2">
+                <h2 className="text-3xl font-semibold text-center">
+                    Contact Us
+                </h2>
+                <p className="text-center mb-6 mt-2">
+                    Email:{" "}
+                    <a
+                        href="mailto:addeen.nikkah@gmail.com"
+                        className="text-stone-500 hover:underline"
+                    >
+                        addeen.nikkah@gmail.com
+                    </a>{" "}
+                    | Phone:{" "}
+                    <a
+                        href="tel:+447917581501"
+                        className="text-stone-500 hover:underline"
+                    >
+                        +44 7917 581501
+                    </a>
+                </p>
+
+                <form className="space-y-2" onSubmit={handleSubmit}>
                     <div>
-                        <label className="block font-medium">Name</label>
+                        <label className="block font-medium mb-2">Name</label>
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                            className="w-full p-2 border rounded-sm focus:ring focus:ring-blue-200"
                             placeholder="Your name"
                         />
                     </div>
                     <div>
-                        <label className="block font-medium">Email</label>
+                        <label className="block font-medium mb-2">Email</label>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                            className="w-full p-2 border rounded-sm focus:ring focus:ring-blue-200"
                             placeholder="Your email"
                         />
                     </div>
                     <div>
-                        <label className="block font-medium">Message</label>
+                        <label className="block font-medium mb-2">
+                            Message
+                        </label>
                         <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                            className="w-full p-2 border rounded-sm focus:ring focus:ring-blue-200"
                             rows={4}
                             placeholder="Your message"
                         ></textarea>
                     </div>
                     <button
                         type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                        className="bg-blue-600 text-white px-4 py-2 cursor-pointer rounded-sm hover:bg-blue-700 transition"
                     >
                         Send
                     </button>
