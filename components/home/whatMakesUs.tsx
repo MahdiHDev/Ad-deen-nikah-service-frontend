@@ -15,11 +15,8 @@ const WhatMakesUsDiffrent = () => {
     }, []);
 
     return (
-        <div
-            className="bg-cover bg-no-repeat text-white"
-            style={{ backgroundImage: "url('/images/bg2.jpg')" }}
-        >
-            <div className="max-w-5xl pt-10  mx-auto ">
+        <div className="bg-cover bg-no-repeat bg-gray-50">
+            <div className="max-w-5xl py-5 md:py-10 mx-auto ">
                 <h1
                     className={`text-center text-2xl md:text-4xl ${philosopher.className} font-medium`}
                 >

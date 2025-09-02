@@ -29,7 +29,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className="w-full border-b">
+        <header className="w-full border-b bg-gray-100 shadow-sm sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between px-4 py-3">
                 {/* Logo */}
                 <Link href={"/"} className="relative">
@@ -48,7 +48,7 @@ export default function Navbar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-primary"
+                            className="text-sm font-medium text-muted-foreground hover:text-primary duration-300"
                         >
                             {link.label}
                         </Link>
