@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { TfiCheckBox } from "react-icons/tfi";
+import { philosopher } from "../fonts/fonts";
 
 const AboutPage: React.FC = () => {
     return (
@@ -25,7 +26,9 @@ const AboutPage: React.FC = () => {
                     >
                         {/* Text - Left */}
                         <div className="flex-1 text-center md:text-left">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 relative inline-block">
+                            <h2
+                                className={`text-3xl md:text-4xl font-bold text-gray-800 mb-4 relative inline-block ${philosopher.className}`}
+                            >
                                 About Us
                                 <span className="absolute -bottom-1 left-1/2 md:left-0 transform -translate-x-1/2 md:translate-x-0 w-20 h-1 bg-gray-800 rounded-full"></span>
                             </h2>
@@ -103,7 +106,9 @@ const AboutPage: React.FC = () => {
                 {/* Our History */}
                 <section className="py-6 sm:py-12 bg-white shadow-inner">
                     <div className="max-w-6xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-700">
+                        <h2
+                            className={`text-2xl md:text-3xl font-bold mb-4 text-green-700 ${philosopher.className}`}
+                        >
                             Our History
                         </h2>
                         <p className="text-gray-600 leading-6 sm:leading-relaxed">
@@ -127,7 +132,9 @@ const AboutPage: React.FC = () => {
                 {/* Mission Section */}
                 <section className="py-8 sm:py-12 bg-gradient-to-r from-green-50 to-green-100">
                     <div className="max-w-6xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-green-800">
+                        <h2
+                            className={`text-2xl md:text-3xl font-bold mb-4 text-green-800 ${philosopher.className}`}
+                        >
                             Our Mission
                         </h2>
                         <ul className="text-gray-700 space-y-2 text-base md:text-lg leading-5 md:leading-relaxed">
@@ -173,7 +180,9 @@ const AboutPage: React.FC = () => {
                 {/* Imams Section */}
                 <section className="py-12 bg-white">
                     <div className="max-w-6xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-green-700">
+                        <h2
+                            className={`text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-green-700 ${philosopher.className}`}
+                        >
                             Our Imams
                         </h2>
                         <p className="text-gray-600 leading-5 sm:leading-relaxed">
@@ -209,7 +218,9 @@ const AboutPage: React.FC = () => {
                 {/* Services Section */}
                 <section className="py-8 sm:py-12 bg-gradient-to-r from-green-50 to-green-100">
                     <div className="max-w-6xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-green-800">
+                        <h2
+                            className={`text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-green-800 ${philosopher.className}`}
+                        >
                             What We Do
                         </h2>
                         <p className="text-gray-600 leading-5 sm:leading-relaxed">
