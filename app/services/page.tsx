@@ -1,3 +1,4 @@
+import NikahSteps from "@/components/services/NikahSteps";
 import ServicesCard from "@/components/services/ServicesCard";
 import {
     Accordion,
@@ -195,6 +196,8 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+
+            <NikahSteps />
 
             {/* Talaq */}
             <section className="border-t">
