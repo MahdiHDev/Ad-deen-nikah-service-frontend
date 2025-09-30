@@ -166,7 +166,7 @@ export default function ServicesPage() {
             <ServicesCard />
 
             {/* How it works */}
-            <section className="border-t bg-stone-50">
+            {/* <section className="border-t bg-stone-50">
                 <div className="max-w-6xl mx-auto px-4 py-14">
                     <h2
                         className={`text-2xl md:text-3xl font-semibold ${philosopher.className}`}
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <NikahSteps />
 

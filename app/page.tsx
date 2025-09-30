@@ -6,6 +6,11 @@ import Performance from "@/components/home/Performance";
 import ServicesSection from "@/components/home/Services";
 import WhatMakesUsDiffrent from "@/components/home/whatMakesUs";
 
+export const metadata = {
+    title: "Ad Deen Nikkah Service",
+    description: "Welcome to Ad Deen Nikkah Service",
+};
+
 export default function Home() {
     return (
         <div>
