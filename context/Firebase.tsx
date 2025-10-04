@@ -40,10 +40,10 @@ export const useFirebase = (): FirebaseContextType => {
 };
 
 interface FirebaseProviderProps {
-    props: ReactNode;
+    children: ReactNode;
 }
 
-export const FirebaseProvider = ({ props }: FirebaseProviderProps) => {
+export const FirebaseProvider = ({ children }: FirebaseProviderProps) => {
     const signupUserWithEmailAndPassword = (
         email: string,
         password: string
@@ -53,7 +53,7 @@ export const FirebaseProvider = ({ props }: FirebaseProviderProps) => {
 
     return (
         <FirebaseContext.Provider value={{ signupUserWithEmailAndPassword }}>
-            {props}
+            {children}
         </FirebaseContext.Provider>
     );
 };
