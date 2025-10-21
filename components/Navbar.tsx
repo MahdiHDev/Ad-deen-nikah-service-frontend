@@ -61,7 +61,7 @@ export default function Navbar() {
                             Login
                         </Button>
                     </Link>
-                    <Link href="/signup">
+                    <Link href="/sign-up">
                         <Button size="sm">Signup</Button>
                     </Link>
                 </div>
@@ -117,7 +117,7 @@ export default function Navbar() {
                                         Login
                                     </Button>
                                 </Link>
-                                <Link href="/signup">
+                                <Link href="/sign-up">
                                     <Button className="w-full">Signup</Button>
                                 </Link>
                             </div>

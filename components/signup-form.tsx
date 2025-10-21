@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-export function LoginForm({
+export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
@@ -23,14 +23,26 @@ export function LoginForm({
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
                 <CardHeader>
-                    <CardTitle>Login to your account</CardTitle>
+                    <CardTitle>Create an account</CardTitle>
                     <CardDescription>
-                        Enter your email below to login to your account
+                        Let&apos;s get started. Fill in the details below to
+                        create your account.
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form>
-                        <FieldGroup>
+                        <FieldGroup className="gap-2">
+                            <Field>
+                                <FieldLabel htmlFor="email">
+                                    Full Name
+                                </FieldLabel>
+                                <Input
+                                    id="full"
+                                    type="tex"
+                                    placeholder="example: John Doe"
+                                    required
+                                />
+                            </Field>
                             <Field>
                                 <FieldLabel htmlFor="email">Email</FieldLabel>
                                 <Input
@@ -45,23 +57,23 @@ export function LoginForm({
                                     <FieldLabel htmlFor="password">
                                         Password
                                     </FieldLabel>
-                                    <a
-                                        href="#"
-                                        className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                                    >
-                                        Forgot your password?
-                                    </a>
+                                </div>
+                                <Input id="password" type="password" required />
+                            </Field>
+                            <Field>
+                                <div className="flex items-center">
+                                    <FieldLabel htmlFor="password">
+                                        Confirm Password
+                                    </FieldLabel>
                                 </div>
                                 <Input id="password" type="password" required />
                             </Field>
                             <Field>
                                 <Button type="submit">Login</Button>
-                                <Button variant="outline" type="button">
-                                    Login with Google
-                                </Button>
+
                                 <FieldDescription className="text-center">
-                                    Don&apos;t have an account?{" "}
-                                    <a href="/sign-up">Sign up</a>
+                                    Already have an account?{" "}
+                                    <a href="/login">Login</a>
                                 </FieldDescription>
                             </Field>
                         </FieldGroup>
