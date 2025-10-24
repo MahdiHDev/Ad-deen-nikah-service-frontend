@@ -8,10 +8,19 @@ export default function MultiStepForm() {
     const [step, setStep] = useState(0);
     const [direction, setDirection] = useState<"next" | "back">("next");
     const [formData, setFormData] = useState({
+        service: "",
+        services: ["Simple Nikah", "Online Nikah", "Event Nikah", "Shahadah"],
         name: "",
         email: "",
         city: "",
         country: "",
+        date: "",
+        time: "",
+        venue: "",
+        contactNumber: "",
+        personalAddress: "",
+        additionalInfo: "",
+        details: "",
     });
 
     const nextStep = () => {
@@ -31,15 +40,15 @@ export default function MultiStepForm() {
 
     return (
         <div className="max-w-7xl mx-auto p-4 ">
-            <h1 className="text-3xl mt-4 mb-8">Booking</h1>
+            <h1 className="text-3xl mt-4 mb-8 font-semibold">Booking</h1>
             <ContactDetails />
             <div className="p-6 bg-white rounded-2xl border-gray-300 border  overflow-hidden relative">
                 {/* Stepper */}
                 <div className="flex justify-between items-center mb-8 relative">
                     {/* Line */}
-                    <div className="absolute top-5 left-0 w-full h-1 bg-gray-200 rounded-full">
+                    <div className="absolute top-4 left-0 w-[98%] h-1 bg-gray-200 rounded-full">
                         <div
-                            className="h-1 bg-blue-600 rounded-full transition-all duration-500"
+                            className="h-1 bg-green-600 rounded-full transition-all duration-500"
                             style={{
                                 width: `${(step / (steps.length - 1)) * 100}%`,
                             }}
@@ -49,13 +58,13 @@ export default function MultiStepForm() {
                     {steps.map((label, index) => (
                         <div
                             key={index}
-                            className="flex flex-col items-center relative z-10 flex-1"
+                            className="flex flex-col items-between relative z-10"
                         >
                             <div
-                                className={`w-10 h-10 flex items-center justify-center rounded-full text-white font-semibold transition-all duration-300 ${
+                                className={`w-8 h-8 flex items-center justify-center rounded-full border font-semibold transition-all duration-300 text-white ${
                                     index <= step
-                                        ? "bg-green-600 scale-110"
-                                        : "bg-gray-300 scale-100"
+                                        ? "bg-green-600  scale-110"
+                                        : "bg-white !text-gray-500 scale-100"
                                 }`}
                             >
                                 {index + 1}
@@ -74,14 +83,11 @@ export default function MultiStepForm() {
                 </div>
 
                 {/* Form */}
-                <form
-                    onSubmit={handleSubmit}
-                    className="relative h-56 overflow-hidden"
-                >
+                <form onSubmit={handleSubmit} className="relative">
                     {/* Step container */}
                     <div
                         key={step}
-                        className={`absolute w-full transition-all duration-500 ease-in-out ${
+                        className={` w-full transition-all duration-500 ease-in-out ${
                             direction === "next"
                                 ? "translate-x-0 animate-slideInRight"
                                 : "translate-x-0 animate-slideInLeft"
@@ -89,59 +95,178 @@ export default function MultiStepForm() {
                     >
                         {step === 0 && (
                             <div className="space-y-4">
-                                <input
-                                    type="text"
-                                    placeholder="Full Name"
-                                    className="w-full border p-2 rounded"
-                                    value={formData.name}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            name: e.target.value,
-                                        })
-                                    }
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Email Address"
-                                    className="w-full border p-2 rounded"
-                                    value={formData.email}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            email: e.target.value,
-                                        })
-                                    }
-                                />
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">
+                                        Service
+                                    </label>
+                                    <select
+                                        className="w-full border p-2 rounded"
+                                        value={formData.service}
+                                        onChange={(e) =>
+                                            setFormData({
+                                                ...formData,
+                                                service: e.target.value,
+                                            })
+                                        }
+                                    >
+                                        <option value="" disabled>
+                                            Select a service
+                                        </option>
+                                        {formData.services.map((s, i) => (
+                                            <option key={i} value={s}>
+                                                {s}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="flex flex-col md:flex-row gap-2">
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Date
+                                        </label>
+                                        <input
+                                            type="date"
+                                            placeholder="Full Name"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.date}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    date: e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Time
+                                        </label>
+                                        <input
+                                            type="time"
+                                            placeholder="Full Name"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.time}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    time: e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1">
+                                        Venue Address
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="XXXX Hotel, Central London, Post Code XXXX, United Kingdom"
+                                        className="w-full border p-2 rounded"
+                                        value={formData.venue}
+                                        onChange={(e) =>
+                                            setFormData({
+                                                ...formData,
+                                                venue: e.target.value,
+                                            })
+                                        }
+                                    />
+                                </div>
                             </div>
                         )}
 
                         {step === 1 && (
                             <div className="space-y-4">
-                                <input
-                                    type="text"
-                                    placeholder="City"
-                                    className="w-full border p-2 rounded"
-                                    value={formData.city}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            city: e.target.value,
-                                        })
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Country"
-                                    className="w-full border p-2 rounded"
-                                    value={formData.country}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            country: e.target.value,
-                                        })
-                                    }
-                                />
+                                <div className="flex-col md:flex-row flex gap-4">
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Full Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Name"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.name}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    name: e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            placeholder="Email Address"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.email}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    email: e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex-col md:flex-row flex gap-4">
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Contact Number
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="+44-XXXXXXXXX"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.contactNumber}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    contactNumber:
+                                                        e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="w-full">
+                                        <label className="block text-sm font-medium mb-1">
+                                            Personal Address
+                                        </label>
+                                        <input
+                                            type="email"
+                                            placeholder="House no. x, Central London, Post Code XXXX, United Kingdom"
+                                            className="w-full border p-2 rounded"
+                                            value={formData.personalAddress}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    personalAddress:
+                                                        e.target.value,
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                </div>
+                                <div className="w-full">
+                                    <label className="block text-sm font-medium mb-1">
+                                        Details
+                                    </label>
+                                    <textarea
+                                        className="w-full border p-2 rounded"
+                                        placeholder="write text..."
+                                        value={formData.details}
+                                        onChange={(e) =>
+                                            setFormData({
+                                                ...formData,
+                                                details: e.target.value,
+                                            })
+                                        }
+                                    ></textarea>
+                                </div>
                             </div>
                         )}
 
@@ -157,17 +282,36 @@ export default function MultiStepForm() {
                                     <strong>Email:</strong> {formData.email}
                                 </p>
                                 <p>
-                                    <strong>City:</strong> {formData.city}
+                                    <strong>Contact Number:</strong>{" "}
+                                    {formData.contactNumber}
                                 </p>
                                 <p>
-                                    <strong>Country:</strong> {formData.country}
+                                    <strong>Services:</strong>{" "}
+                                    {formData.service}
+                                </p>
+                                <p>
+                                    <strong>Date:</strong> {formData.date}
+                                </p>
+                                <p>
+                                    <strong>Time:</strong> {formData.time}
+                                </p>
+                                <p>
+                                    <strong>Venu Address:</strong>{" "}
+                                    {formData.venue}
+                                </p>
+                                <p>
+                                    <strong>Personal Address:</strong>{" "}
+                                    {formData.personalAddress}
+                                </p>
+                                <p>
+                                    <strong>Details:</strong> {formData.details}
                                 </p>
                             </div>
                         )}
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex justify-between mt-8 absolute bottom-0 left-0 right-0">
+                    <div className="flex justify-between mt-8 ">
                         {step > 0 ? (
                             <button
                                 type="button"
@@ -184,7 +328,7 @@ export default function MultiStepForm() {
                             <button
                                 type="button"
                                 onClick={nextStep}
-                                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition"
+                                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition"
                             >
                                 Next
                             </button>
