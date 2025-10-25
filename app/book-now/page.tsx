@@ -1,6 +1,8 @@
 "use client";
 import ContactDetails from "@/components/ContactDetails";
+import Link from "next/link";
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const steps = ["Service", "Details", "Review"];
 
@@ -40,9 +42,20 @@ export default function MultiStepForm() {
 
     return (
         <div className="max-w-7xl mx-auto p-4 ">
-            <h1 className="text-3xl mt-4 mb-8 font-semibold">Booking</h1>
+            <h1 className="text-3xl mt-4 md:mb-8 mb-4 font-semibold text-center">
+                Booking
+            </h1>
             <ContactDetails />
-            <div className="p-6 bg-white rounded-2xl border-gray-300 border  overflow-hidden relative">
+            <div className="space-y-2 text-center bg-green-600 p-6 mb-5 md:mb-10 rounded-md text-white">
+                <Link
+                    href={"https://api.whatsapp.com/send?phone=447917581501"}
+                    className="flex justify-center items-center gap-2 text-2xl md:text-4xl font-bold cursor-pointer duration-300"
+                >
+                    <h2>Whats App Now</h2> <FaWhatsapp className="mt-1" />
+                </Link>
+                <p>(For Quick Response)</p>
+            </div>
+            <div className="p-6 bg-white  border-gray-300 border-t-[3px]  overflow-hidden relative">
                 {/* Stepper */}
                 <div className="flex justify-between items-center mb-8 relative">
                     {/* Line */}
@@ -95,7 +108,7 @@ export default function MultiStepForm() {
                     >
                         {step === 0 && (
                             <div className="space-y-4">
-                                <div>
+                                <div className="w-full">
                                     <label className="block text-sm font-medium mb-1">
                                         Service
                                     </label>

@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 
 const Header = () => {
     return (
-        <header className="relative h-[90vh] flex items-center justify-center text-white">
+        <header className="relative h-[70vh] md:h-[100vh] flex items-center justify-center text-white">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
