@@ -41,12 +41,21 @@ export default function MultiStepForm() {
     };
 
     return (
-        <div className="max-w-7xl mx-auto p-4 ">
-            <h1 className="text-3xl mt-4 md:mb-8 mb-4 font-semibold text-center">
+        <div className="max-w-7xl mx-auto p-4">
+            <h1 className="text-3xl my-2 md:my-4 font-semibold text-center">
                 Booking
             </h1>
+            {/* ✅ Floating WhatsApp Icon */}
+            <Link
+                href="https://api.whatsapp.com/send?phone=447917581501&text=Hi!%20I%27d%20like%20to%20book%20a%20Nikah%20service."
+                target="_blank"
+                className="flex items-center justify-center pb-6 gap-2"
+            >
+                <FaWhatsapp className=" text-3xl text-green-500" />
+                <p className="font-semibold">For Quick Response</p>
+            </Link>
             <ContactDetails />
-            <div className="space-y-2 text-center bg-green-600 p-6 mb-5 md:mb-10 rounded-md text-white">
+            {/* <div className="space-y-2 text-center bg-green-600 p-6 mb-5 md:mb-10 rounded-md text-white">
                 <Link
                     href={"https://api.whatsapp.com/send?phone=447917581501"}
                     className="flex justify-center items-center gap-2 text-2xl md:text-4xl font-bold cursor-pointer duration-300"
@@ -54,8 +63,8 @@ export default function MultiStepForm() {
                     <h2>Whats App Now</h2> <FaWhatsapp className="mt-1" />
                 </Link>
                 <p>(For Quick Response)</p>
-            </div>
-            <div className="p-6 bg-white  border-gray-300 border-t-[3px]  overflow-hidden relative">
+            </div> */}
+            <div className="p-6 bg-white   overflow-hidden relative">
                 {/* Stepper */}
                 <div className="flex justify-between items-center mb-8 relative">
                     {/* Line */}
