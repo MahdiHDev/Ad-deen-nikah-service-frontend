@@ -44,34 +44,90 @@ const page = () => {
 
                 <form>
                     <div className="space-y-4">
-                        <div className="w-full">
-                            <label className="block text-sm font-medium mb-1">
-                                Service
-                            </label>
-                            <select
-                                className="w-full border p-2 rounded"
-                                value={formData.service}
-                                onChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        service: e.target.value,
-                                    })
-                                }
-                            >
-                                <option value="" disabled>
-                                    Select a service
-                                </option>
-                                {/* {formData.services.map((s, i) => (
-                                    <option key={i} value={s}>
-                                        {s}
-                                    </option>
-                                ))} */}
-                            </select>
+                        <div className="flex flex-col md:flex-row gap-2">
+                            <div className="w-full">
+                                <label className="block text-sm font-medium mb-1">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Full Name"
+                                    className="w-full border p-2 rounded"
+                                    // value={formData.date}
+                                    // onChange={(e) =>
+                                    //     setFormData({
+                                    //         ...formData,
+                                    //         date: e.target.value,
+                                    //     })
+                                    // }
+                                />
+                            </div>
+                            <div className="w-full">
+                                <label className="block text-sm font-medium mb-1">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className="w-full border p-2 rounded"
+                                    // value={formData.time}
+                                    // onChange={(e) =>
+                                    //     setFormData({
+                                    //         ...formData,
+                                    //         time: e.target.value,
+                                    //     })
+                                    // }
+                                />
+                            </div>
                         </div>
                         <div className="flex flex-col md:flex-row gap-2">
                             <div className="w-full">
                                 <label className="block text-sm font-medium mb-1">
-                                    Date
+                                    Phone
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Phone Number"
+                                    className="w-full border p-2 rounded"
+                                    // value={formData.date}
+                                    // onChange={(e) =>
+                                    //     setFormData({
+                                    //         ...formData,
+                                    //         date: e.target.value,
+                                    //     })
+                                    // }
+                                />
+                            </div>
+                            <div className="w-full">
+                                <label className="block text-sm font-medium mb-1">
+                                    Service
+                                </label>
+                                <select
+                                    className="w-full border p-2 rounded"
+                                    value={formData.service}
+                                    onChange={(e) =>
+                                        setFormData({
+                                            ...formData,
+                                            service: e.target.value,
+                                        })
+                                    }
+                                >
+                                    <option value="" disabled>
+                                        Select a service
+                                    </option>
+                                    {formData.services.map((s, i) => (
+                                        <option key={i} value={s}>
+                                            {s}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row gap-2">
+                            <div className="w-full">
+                                <label className="block text-sm font-medium mb-1">
+                                    Nikah Date
                                 </label>
                                 <input
                                     type="date"
@@ -88,7 +144,7 @@ const page = () => {
                             </div>
                             <div className="w-full">
                                 <label className="block text-sm font-medium mb-1">
-                                    Time
+                                    Nikah Time
                                 </label>
                                 <input
                                     type="time"
@@ -121,6 +177,26 @@ const page = () => {
                                 // }
                             />
                         </div>
+                        <div>
+                            <label className="block text-sm font-medium mb-1">
+                                Any Additional Information
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="XXXX Hotel, Central London, Post Code XXXX, United Kingdom"
+                                className="w-full border p-2 rounded"
+                                // value={formData.venue}
+                                // onChange={(e) =>
+                                //     setFormData({
+                                //         ...formData,
+                                //         venue: e.target.value,
+                                //     })
+                                // }
+                            />
+                        </div>
+                        <button className="bg-stone-600 text-white px-6 py-2">
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>
